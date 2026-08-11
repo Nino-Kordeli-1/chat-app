@@ -8,7 +8,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.example.chatapp.buildlogic"
+group = "com.chatapp.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17

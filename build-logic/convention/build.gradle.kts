@@ -1,5 +1,4 @@
 import org.gradle.api.provider.Provider
-import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.withType
 import org.gradle.plugin.use.PluginDependency
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -46,21 +45,9 @@ gradlePlugin {
             id = "convention.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
-        register("androidCompose") {
-            id = "convention.compose"
-            implementationClass = "ComposeConventionPlugin"
-        }
         register("kotlinLibrary") {
             id = "convention.kotlin.library"
             implementationClass = "KotlinLibraryConventionPlugin"
-        }
-        register("androidStorage") {
-            id = "convention.android.storage"
-            implementationClass = "AndroidStorageConventionPlugin"
-        }
-        register("androidFeature") {
-            id = "convention.android.feature"
-            implementationClass = "AndroidFeatureConventionPlugin"
         }
     }
 }

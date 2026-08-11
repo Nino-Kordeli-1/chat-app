@@ -7,6 +7,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply(ConventionConstants.Plugins.ANDROID_LIBRARY)
+            pluginManager.apply(ConventionConstants.Plugins.KSP)
 
             extensions.configure<LibraryExtension> {
                 configureAndroidLibrary(this)

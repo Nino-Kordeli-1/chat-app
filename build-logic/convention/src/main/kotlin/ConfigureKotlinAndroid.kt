@@ -20,10 +20,23 @@ internal fun Project.configureAndroidApplication(extension: ApplicationExtension
         defaultConfig {
             minSdk = ConventionConstants.MIN_SDK
             targetSdk = ConventionConstants.TARGET_SDK
+            applicationId = ConventionConstants.APPLICATION_ID
+            versionCode = ConventionConstants.VERSION_CODE
+            versionName = ConventionConstants.VERSION_NAME
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
         compileOptions {
             sourceCompatibility = ConventionConstants.JAVA_VERSION
             targetCompatibility = ConventionConstants.JAVA_VERSION
+        }
+        buildTypes {
+            release {
+                isMinifyEnabled = false
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
         }
     }
     configureSharedKotlinAndDependencies()
@@ -61,7 +74,20 @@ private fun Project.configureSharedKotlinAndDependencies() {
     }
 }
 
-internal fun Project.configureComposeDependencies() {
+fun Project.configureCompose() {
+    pluginManager.apply(ConventionConstants.Plugins.KOTLIN_COMPOSE)
+
+    pluginManager.withPlugin(ConventionConstants.Plugins.ANDROID_APPLICATION) {
+        extensions.configure<ApplicationExtension> {
+            buildFeatures.compose = true
+        }
+    }
+    pluginManager.withPlugin(ConventionConstants.Plugins.ANDROID_LIBRARY) {
+        extensions.configure<LibraryExtension> {
+            buildFeatures.compose = true
+        }
+    }
+
     dependencies {
         implementationPlatform(libs, Libraries.COMPOSE_BOM)
         implementationBundle(libs, ConventionConstants.Bundles.COMPOSE)
@@ -71,7 +97,7 @@ internal fun Project.configureComposeDependencies() {
     }
 }
 
-internal fun Project.configureStorageDependencies() {
+fun Project.configureStorageDependencies() {
     pluginManager.apply(ConventionConstants.Plugins.KSP)
 
     dependencies {

@@ -12,6 +12,7 @@ koin = "4.2.2"
 navigation3 = "1.1.5"
 room = "2.8.4"
 kotlinxSerialization = "1.11.0"
+ksp = "2.3.10"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,15 +46,12 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version = "2.0.21-1.0.28" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # Custom Local Convention Plugins
 convention-android-application = { id = "convention.android.application" }
 convention-android-library = { id = "convention.android.library" }
-convention-compose = { id = "convention.compose" }
 convention-kotlin-library = { id = "convention.kotlin.library" }
-convention-android-storage = { id = "convention.android.storage" }
-convention-android-feature = { id = "convention.android.feature" }
 
 [bundles]
 compose = [
@@ -77,4 +75,3 @@ navigation = [
     "androidx-navigation3-ui",
     "kotlinx-serialization-json"
 ]
-

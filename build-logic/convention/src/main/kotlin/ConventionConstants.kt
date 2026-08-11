@@ -5,6 +5,9 @@ object ConventionConstants {
     const val COMPILE_SDK = 37
     const val MIN_SDK = 24
     const val TARGET_SDK = 37
+    const val APPLICATION_ID = "com.chatapp"
+    const val VERSION_CODE = 1
+    const val VERSION_NAME = "1.0"
     val JAVA_VERSION = JavaVersion.VERSION_17
     val JVM_TARGET = JvmTarget.JVM_17
 

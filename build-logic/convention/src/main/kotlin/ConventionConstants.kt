@@ -32,6 +32,9 @@ object ConventionConstants {
         const val ROOM_RUNTIME = "androidx-room-runtime"
         const val ROOM_KTX = "androidx-room-ktx"
         const val ROOM_COMPILER = "androidx-room-compiler"
+        const val ANDROIDX_CORE_KTX = "androidx-core-ktx"
+        const val ANDROIDX_LIFECYCLE_RUNTIME = "androidx-lifecycle-runtime-ktx"
+        const val ANDROIDX_ACTIVITY_COMPOSE = "androidx-activity-compose"
     }
 
     object Bundles {
@@ -39,5 +42,6 @@ object ConventionConstants {
         const val TESTING = "testing"
         const val COMPOSE = "compose"
         const val COMPOSE_DEBUG = "compose-debug"
+        const val ANDROIDX_CORE = "androidx-core"
     }
 }

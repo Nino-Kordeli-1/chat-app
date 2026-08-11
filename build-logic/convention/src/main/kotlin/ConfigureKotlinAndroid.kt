@@ -54,18 +54,21 @@ private fun Project.configureSharedKotlinAndDependencies() {
     }
 
     dependencies {
-        implementation(libs, Libraries.KOIN_ANDROID)
-        implementationBundle(libs, Bundles.NAVIGATION)
-        testImplementationBundle(libs, Bundles.TESTING)
+        implementation(libs, ConventionConstants.Libraries.ANDROIDX_CORE_KTX)
+        implementation(libs, ConventionConstants.Libraries.ANDROIDX_LIFECYCLE_RUNTIME)
+        implementation(libs, ConventionConstants.Libraries.KOIN_ANDROID)
+        implementationBundle(libs, ConventionConstants.Bundles.NAVIGATION)
+        testImplementationBundle(libs, ConventionConstants.Bundles.TESTING)
     }
 }
 
 internal fun Project.configureComposeDependencies() {
     dependencies {
-        implementationPlatform(libs, Libraries.COMPOSE_BOM)
-        implementationBundle(libs, Bundles.COMPOSE)
-        implementation(libs, Libraries.KOIN_COMPOSE)
-        debugImplementationBundle(libs, Bundles.COMPOSE_DEBUG)
+        implementationPlatform(libs, ConventionConstants.Libraries.COMPOSE_BOM)
+        implementationBundle(libs, ConventionConstants.Bundles.COMPOSE)
+        implementation(libs, ConventionConstants.Libraries.KOIN_COMPOSE)
+        implementation(libs, ConventionConstants.Libraries.ANDROIDX_ACTIVITY_COMPOSE)
+        debugImplementationBundle(libs, ConventionConstants.Bundles.COMPOSE_DEBUG)
     }
 }
 

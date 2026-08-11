@@ -42,6 +42,5 @@ object ConventionConstants {
         const val TESTING = "testing"
         const val COMPOSE = "compose"
         const val COMPOSE_DEBUG = "compose-debug"
-        const val ANDROIDX_CORE = "androidx-core"
     }
 }

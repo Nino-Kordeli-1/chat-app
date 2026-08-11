@@ -1,4 +1,3 @@
-import ConventionConstants.Bundles
 import ConventionConstants.Libraries
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension

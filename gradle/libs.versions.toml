@@ -47,6 +47,14 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version = "2.0.21-1.0.28" }
 
+# Custom Local Convention Plugins
+convention-android-application = { id = "convention.android.application" }
+convention-android-library = { id = "convention.android.library" }
+convention-compose = { id = "convention.compose" }
+convention-kotlin-library = { id = "convention.kotlin.library" }
+convention-android-storage = { id = "convention.android.storage" }
+convention-android-feature = { id = "convention.android.feature" }
+
 [bundles]
 compose = [
     "androidx-compose-ui",

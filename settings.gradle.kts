@@ -1,5 +1,6 @@
 pluginManagement {
     includeBuild("build-logic")
+
     repositories {
         google {
             content {
@@ -12,22 +13,28 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
     repositories {
         google()
         mavenCentral()
     }
 }
 
+fun Settings.includeAllModules(directory: String) {
+    file(directory)
+        .listFiles()
+        ?.filter { it.isDirectory }
+        ?.forEach { module ->
+            include(":$directory:${module.name}")
+        }
+}
 rootProject.name = "ChatApp"
 include(":app")
-include(":core:domain")
-include(":core:data")
-include(":core:designsystem")
-include(":core:common")
-include(":core:ui")
-include(":core:navigation")
+includeAllModules("core")

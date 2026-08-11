@@ -25,3 +25,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "ChatApp"
 include(":app")
+include(":core:domain")
+include(":core:data")
+include(":core:designsystem")
+include(":core:common")
+include(":core:ui")
+include(":core:navigation")

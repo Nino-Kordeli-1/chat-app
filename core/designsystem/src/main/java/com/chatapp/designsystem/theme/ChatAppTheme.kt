@@ -1,2 +1,2 @@
-package com.chatapp.designsystem
+package com.chatapp.designsystem.theme
 

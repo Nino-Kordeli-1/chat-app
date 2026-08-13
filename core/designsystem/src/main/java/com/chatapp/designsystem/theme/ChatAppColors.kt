@@ -1,2 +1,2 @@
-package com.movieapp.designsystem.theme
+package com.chatapp.designsystem.theme
 

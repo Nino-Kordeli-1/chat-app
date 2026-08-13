@@ -27,9 +27,15 @@ object ChatAppTheme {
 
 @Composable
 fun ChatAppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    themeConfig: ThemeConfig = ThemeConfig.FOLLOW_SYSTEM,
     content: @Composable () -> Unit
 ) {
+    val darkTheme = when (themeConfig) {
+        ThemeConfig.FOLLOW_SYSTEM -> isSystemInDarkTheme()
+        ThemeConfig.LIGHT -> false
+        ThemeConfig.DARK -> true
+    }
+
     val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     SystemTheme(lightIcons = !darkTheme)

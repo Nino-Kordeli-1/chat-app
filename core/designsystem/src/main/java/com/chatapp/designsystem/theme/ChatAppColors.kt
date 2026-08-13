@@ -8,13 +8,10 @@ private val Purple200 = Color(0xFFDAC2FF)
 private val Gold300 = Color(0xFFF7CE7F)
 private val Gray900 = Color(0xFF191919)
 private val Gray500 = Color(0xFFC7C7C7)
-private val Gray400 = Color(0xFFDADADA)
-private val Gray300 = Color(0xFFE4E4E4)
 private val Gray100 = Color(0xFFF1F1F1)
 private val White = Color(0xFFFFFFFF)
 private val DeepNavy900 = Color(0xFF160039)
 private val DeepNavy700 = Color(0xFF2E0072)
-private val Yellow400 = Color(0xFFFFCA55)
 private val RedError = Color(0xFFFF0000)
 
 @Immutable

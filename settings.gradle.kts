@@ -1,3 +1,4 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
     includeBuild("build-logic")
 
@@ -27,12 +28,17 @@ dependencyResolutionManagement {
     }
 }
 
-fun Settings.includeAllModules(directory: String) {
-    file(directory)
+fun Settings.includeAllModules(directoryName: String) {
+    file(directoryName)
         .listFiles()
-        ?.filter { it.isDirectory }
-        ?.forEach { module ->
-            include(":$directory:${module.name}")
+        ?.filter { file ->
+            file.isDirectory &&
+                    file.name != "build" &&
+                    !file.name.startsWith(".") &&
+                    file.resolve("build.gradle.kts").exists()
+        }
+        ?.forEach { moduleDir ->
+            include(":$directoryName:${moduleDir.name}")
         }
 }
 rootProject.name = "ChatApp"

@@ -13,6 +13,7 @@ import com.chatapp.navigation.entries.biometrics.biometricsEntry
 import com.chatapp.navigation.entries.home.homeEntry
 import com.chatapp.navigation.entries.verification.verificationEntry
 import com.chatapp.ui.theme.ChatAppTheme
+import com.chatapp.designsystem.theme.ChatAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -24,7 +24,11 @@ fun ChatFeatureEntry() {
     CompositionLocalProvider(LocalFlowNavigator provides navigator) {
         NavDisplay(
             backStack = backStack,
-            onBack = navigator::navigateBack,
+            onBack = {
+                if (backStack.size > 1) {
+                    navigator.navigateBack()
+                }
+            },
             entryDecorators = listOf(
                 rememberSaveableStateHolderNavEntryDecorator(),
                 rememberViewModelStoreNavEntryDecorator()

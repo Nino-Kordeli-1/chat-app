@@ -19,8 +19,6 @@ class DefaultNavigator(
     }
 
     override fun navigateBack() {
-        if (backStack.size > 1) {
-            backStack.removeLastOrNull()
-        }
+        backStack.removeLastOrNull()
     }
 }

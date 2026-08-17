@@ -5,19 +5,21 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
-import androidx.navigation3.runtime.NavEntry
-import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
+import com.chatapp.navigation.entries.auth.authEntry
+import com.chatapp.navigation.entries.biometrics.biometricsEntry
+import com.chatapp.navigation.entries.home.homeEntry
+import com.chatapp.navigation.entries.verification.verificationEntry
 import com.chatapp.navigation.navigator.DefaultNavigator
 import com.chatapp.navigation.navigator.localNavigator
 import com.chatapp.navigation.routes.home.HomeRoute
 
 @Composable
 fun ChatAppNavHost(
-    modifier: Modifier = Modifier,
-    entryProvider: (NavKey) -> NavEntry<NavKey>
+    modifier: Modifier = Modifier
 ) {
     val backStack = rememberNavBackStack(HomeRoute.Home)
 
@@ -34,7 +36,12 @@ fun ChatAppNavHost(
                 rememberSaveableStateHolderNavEntryDecorator(),
                 rememberViewModelStoreNavEntryDecorator()
             ),
-            entryProvider = entryProvider
+            entryProvider = entryProvider {
+                homeEntry()
+                authEntry()
+                verificationEntry()
+                biometricsEntry()
+            }
         )
     }
 }

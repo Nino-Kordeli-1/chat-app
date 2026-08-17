@@ -9,38 +9,33 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.chatapp.navigation.entries.auth.authEntry
-import com.chatapp.navigation.entries.biometrics.biometricsEntry
-import com.chatapp.navigation.entries.home.homeEntry
-import com.chatapp.navigation.entries.verification.verificationEntry
+import com.chatapp.navigation.entries.auth_feature.AuthFeatureEntry
+import com.chatapp.navigation.entries.chat_feature.ChatFeatureEntry
+import com.chatapp.navigation.keys.AuthFeatureKey
+import com.chatapp.navigation.keys.ChatFeatureKey
 import com.chatapp.navigation.navigator.DefaultNavigator
 import com.chatapp.navigation.navigator.localNavigator
-import com.chatapp.navigation.routes.home.HomeRoute
 
 @Composable
-fun ChatAppNavHost(
-    modifier: Modifier = Modifier
-) {
-    val backStack = rememberNavBackStack(HomeRoute.Home)
+fun ChatAppNavHost(modifier: Modifier = Modifier) {
+    val globalBackStack = rememberNavBackStack(AuthFeatureKey)
 
-    val navigator = remember(backStack) {
-        DefaultNavigator(backStack)
+    val globalNavigator = remember(globalBackStack) {
+        DefaultNavigator(globalBackStack)
     }
 
-    CompositionLocalProvider(localNavigator provides navigator) {
+    CompositionLocalProvider(localNavigator provides globalNavigator) {
         NavDisplay(
-            backStack = backStack,
+            backStack = globalBackStack,
             modifier = modifier,
-            onBack = navigator::navigateBack,
+            onBack = globalNavigator::navigateBack,
             entryDecorators = listOf(
                 rememberSaveableStateHolderNavEntryDecorator(),
                 rememberViewModelStoreNavEntryDecorator()
             ),
             entryProvider = entryProvider {
-                homeEntry()
-                authEntry()
-                verificationEntry()
-                biometricsEntry()
+                entry<AuthFeatureKey> { AuthFeatureEntry() }
+                entry<ChatFeatureKey> { ChatFeatureEntry() }
             }
         )
     }

@@ -9,7 +9,6 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.chatapp.MainActivity
 import com.chatapp.navigation.entries.auth_feature.AuthFeatureEntry
 import com.chatapp.navigation.entries.chat_feature.ChatFeatureEntry
 import com.chatapp.navigation.keys.AuthFeatureKey
@@ -18,7 +17,10 @@ import com.chatapp.navigation.navigator.DefaultNavigator
 import com.chatapp.navigation.navigator.localNavigator
 
 @Composable
-fun MainActivity.ChatAppNavHost(modifier: Modifier = Modifier) {
+fun ChatAppNavHost(
+    modifier: Modifier = Modifier,
+    onExit: () -> Unit
+) {
     val globalBackStack = rememberNavBackStack(AuthFeatureKey)
 
     val globalNavigator = remember(globalBackStack) {
@@ -32,8 +34,8 @@ fun MainActivity.ChatAppNavHost(modifier: Modifier = Modifier) {
             onBack = {
                 if (globalBackStack.size > 1) {
                     globalNavigator.navigateBack()
-                }else{
-                    finishAffinity()
+                } else {
+                    onExit()
                 }
             },
             entryDecorators = listOf(

@@ -13,8 +13,10 @@ navigation3 = "1.1.5"
 room = "2.8.4"
 kotlinxSerialization = "1.11.0"
 ksp = "2.3.10"
+lifecycleViewmodelNavigation3 = "2.11.0"
 
 [libraries]
+androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNavigation3" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -74,5 +76,6 @@ testing = [
 navigation = [
     "androidx-navigation3-runtime",
     "androidx-navigation3-ui",
+    "androidx-lifecycle-viewmodel-navigation3",
     "kotlinx-serialization-json"
 ]

@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.chatapp"
 }
+
+dependencies {
+    implementation(project(":core:navigation"))
+}

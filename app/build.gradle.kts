@@ -8,8 +8,5 @@ android {
 
 dependencies{
     implementation(projects.core.designsystem)
-}
-
-dependencies {
-    implementation(project(":core:navigation"))
+    implementation(projects.core.navigation)
 }

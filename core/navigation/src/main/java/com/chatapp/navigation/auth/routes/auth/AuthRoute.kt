@@ -1,4 +1,4 @@
-package com.chatapp.navigation.routes.auth
+package com.chatapp.navigation.auth.routes.auth
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable

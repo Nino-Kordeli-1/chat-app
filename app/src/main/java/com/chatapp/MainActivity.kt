@@ -7,13 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.entryProvider
+import com.chatapp.designsystem.theme.ChatAppTheme
 import com.chatapp.navigation.ChatAppNavHost
 import com.chatapp.navigation.entries.auth.authEntry
 import com.chatapp.navigation.entries.biometrics.biometricsEntry
 import com.chatapp.navigation.entries.home.homeEntry
 import com.chatapp.navigation.entries.verification.verificationEntry
-import com.chatapp.ui.theme.ChatAppTheme
-import com.chatapp.designsystem.theme.ChatAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

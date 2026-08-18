@@ -14,6 +14,9 @@ room = "2.8.4"
 kotlinxSerialization = "1.11.0"
 ksp = "2.3.10"
 lifecycleViewmodelNavigation3 = "2.11.0"
+appcompat = "1.6.1"
+material = "1.10.0"
+jetbrainsKotlinJvm = "2.4.10"
 
 [libraries]
 androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNavigation3" }
@@ -43,6 +46,8 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -55,6 +60,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 convention-android-application = { id = "convention.android.application" }
 convention-android-library = { id = "convention.android.library" }
 convention-kotlin-library = { id = "convention.kotlin.library" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 [bundles]
 compose = [

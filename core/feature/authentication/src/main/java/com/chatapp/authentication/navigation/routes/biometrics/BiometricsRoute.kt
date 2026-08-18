@@ -1,4 +1,4 @@
-package com.chatapp.navigation.auth.routes.biometrics
+package com.chatapp.authentication.navigation.routes.biometrics
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable

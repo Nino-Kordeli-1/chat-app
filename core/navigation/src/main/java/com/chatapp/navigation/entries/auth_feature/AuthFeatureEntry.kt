@@ -8,7 +8,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.chatapp.navigation.auth.routes.auth.AuthRoute
+import com.chatapp.navigation.auth.routes.home.HomeRoute
 import com.chatapp.navigation.entries.auth.authEntry
 import com.chatapp.navigation.entries.biometrics.biometricsEntry
 import com.chatapp.navigation.entries.home.homeEntry
@@ -18,7 +18,7 @@ import com.chatapp.navigation.navigator.LocalFlowNavigator
 
 @Composable
 fun AuthFeatureEntry() {
-    val backStack = rememberNavBackStack(AuthRoute.Registration)
+    val backStack = rememberNavBackStack(HomeRoute.Home)
 
     val navigator = remember(backStack) {
         DefaultNavigator(backStack)

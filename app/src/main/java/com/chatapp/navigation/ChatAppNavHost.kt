@@ -14,7 +14,7 @@ import com.chatapp.navigation.entries.chat_feature.ChatFeatureEntry
 import com.chatapp.navigation.keys.AuthFeatureKey
 import com.chatapp.navigation.keys.ChatFeatureKey
 import com.chatapp.navigation.navigator.DefaultNavigator
-import com.chatapp.navigation.navigator.localNavigator
+import com.chatapp.navigation.navigator.LocalGlobalNavigator
 
 @Composable
 fun ChatAppNavHost(
@@ -27,7 +27,7 @@ fun ChatAppNavHost(
         DefaultNavigator(globalBackStack)
     }
 
-    CompositionLocalProvider(localNavigator provides globalNavigator) {
+    CompositionLocalProvider(LocalGlobalNavigator provides globalNavigator) {
         NavDisplay(
             backStack = globalBackStack,
             modifier = modifier,

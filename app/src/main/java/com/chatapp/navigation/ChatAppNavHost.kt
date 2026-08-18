@@ -9,8 +9,8 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.chatapp.navigation.entries.auth_feature.AuthFeatureEntry
-import com.chatapp.navigation.entries.chat_feature.ChatFeatureEntry
+import com.chatapp.authentication.navigation.auth_feature.AuthFeatureEntry
+import com.chatapp.chat.navigation.chat_feature.ChatFeatureEntry
 import com.chatapp.navigation.keys.AuthFeatureKey
 import com.chatapp.navigation.keys.ChatFeatureKey
 import com.chatapp.navigation.navigator.DefaultNavigator
@@ -33,7 +33,7 @@ fun ChatAppNavHost(
             modifier = modifier,
             onBack = {
                 if (globalBackStack.size > 1) {
-                    globalNavigator.navigateBack()
+                    globalNavigator.pop()
                 } else {
                     onExit()
                 }
@@ -43,8 +43,28 @@ fun ChatAppNavHost(
                 rememberViewModelStoreNavEntryDecorator()
             ),
             entryProvider = entryProvider {
-                entry<AuthFeatureKey> { AuthFeatureEntry() }
-                entry<ChatFeatureKey> { ChatFeatureEntry() }
+                entry<AuthFeatureKey> {
+                    AuthFeatureEntry(
+                        onRootBack = {
+                            if (globalBackStack.size > 1) {
+                                globalNavigator.pop()
+                            } else {
+                                onExit()
+                            }
+                        }
+                    )
+                }
+                entry<ChatFeatureKey> {
+                    ChatFeatureEntry(
+                        onRootBack = {
+                            if (globalBackStack.size > 1) {
+                                globalNavigator.pop()
+                            } else {
+                                onExit()
+                            }
+                        }
+                    )
+                }
             }
         )
     }

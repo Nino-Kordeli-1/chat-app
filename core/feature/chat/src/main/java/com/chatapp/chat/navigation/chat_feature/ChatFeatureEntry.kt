@@ -1,4 +1,4 @@
-package com.chatapp.navigation.entries.chat_feature
+package com.chatapp.chat.navigation.chat_feature
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -8,13 +8,15 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.chatapp.navigation.chat.routes.chat.ChatRoute
-import com.chatapp.navigation.entries.chat.chatEntry
+import com.chatapp.chat.navigation.routes.ChatRoute
+import com.chatapp.chat.navigation.entry.chatEntry
 import com.chatapp.navigation.navigator.DefaultNavigator
 import com.chatapp.navigation.navigator.LocalFlowNavigator
 
 @Composable
-fun ChatFeatureEntry() {
+fun ChatFeatureEntry(
+    onRootBack: () -> Unit
+) {
     val backStack = rememberNavBackStack(ChatRoute.ChatList)
 
     val navigator = remember(backStack) {
@@ -26,7 +28,9 @@ fun ChatFeatureEntry() {
             backStack = backStack,
             onBack = {
                 if (backStack.size > 1) {
-                    navigator.navigateBack()
+                    navigator.pop()
+                }else{
+                    onRootBack()
                 }
             },
             entryDecorators = listOf(

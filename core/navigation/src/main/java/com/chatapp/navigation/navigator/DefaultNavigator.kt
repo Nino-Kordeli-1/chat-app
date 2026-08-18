@@ -7,18 +7,18 @@ class DefaultNavigator(
     private val backStack: NavBackStack<NavKey>
 ) : Navigator {
 
-    override fun navigateTo(route: NavKey) {
+    override fun push(route: NavKey) {
         if (backStack.lastOrNull() != route) {
             backStack.add(route)
         }
     }
 
-    override fun clearAndNavigate(route: NavKey) {
+    override fun replaceAll(route: NavKey) {
         backStack.clear()
         backStack.add(route)
     }
 
-    override fun navigateBack() {
+    override fun pop() {
         backStack.removeLastOrNull()
     }
 }

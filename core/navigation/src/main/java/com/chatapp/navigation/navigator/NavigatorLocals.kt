@@ -9,15 +9,7 @@ val LocalGlobalNavigator = staticCompositionLocalOf<Navigator?> { null }
 val LocalFlowNavigator = compositionLocalOf<Navigator?> { null }
 
 @Composable
-fun globalNavigator() = LocalGlobalNavigator.current
+fun globalNavigator(): Navigator? = LocalGlobalNavigator.current
 
 @Composable
-fun localNavigator() = LocalFlowNavigator.current
-
-@Composable
-fun requireGlobalNavigator(): Navigator =
-    globalNavigator() ?: error("Global navigator is not available")
-
-@Composable
-fun requireLocalNavigator(): Navigator =
-    localNavigator() ?: error("Local navigator is not available")
+fun localNavigator(): Navigator? = LocalFlowNavigator.current

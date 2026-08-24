@@ -31,6 +31,7 @@ object ConventionConstants {
     object Libraries {
         const val KOIN_ANDROID = "koin-android"
         const val KOIN_COMPOSE = "koin-androidx-compose"
+        const val KOIN_CORE_VIEWMODEL = "koin-core-viewmodel"
         const val COMPOSE_BOM = "androidx-compose-bom"
         const val ROOM_RUNTIME = "androidx-room-runtime"
         const val ROOM_KTX = "androidx-room-ktx"
@@ -38,6 +39,7 @@ object ConventionConstants {
         const val ANDROIDX_CORE_KTX = "androidx-core-ktx"
         const val ANDROIDX_LIFECYCLE_RUNTIME = "androidx-lifecycle-runtime-ktx"
         const val ANDROIDX_ACTIVITY_COMPOSE = "androidx-activity-compose"
+        const val KOTLINX_COROUTINES_CORE = "kotlinx-coroutines-core"
     }
 
     object Bundles {

@@ -11,5 +11,5 @@ dependencies {
     implementation(projects.core.navigation)
     implementation(projects.feature.authentication)
     implementation(projects.feature.chat)
-
+    implementation(projects.core.data)
 }

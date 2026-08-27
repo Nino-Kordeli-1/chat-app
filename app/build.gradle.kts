@@ -6,10 +6,10 @@ android {
     namespace = "com.chatapp"
 }
 
-dependencies{
+dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.core.navigation)
-    implementation(projects.core.feature.authentication)
-    implementation(projects.core.feature.chat)
+    implementation(projects.feature.authentication)
+    implementation(projects.feature.chat)
 
 }

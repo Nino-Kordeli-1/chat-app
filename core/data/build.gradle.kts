@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.chatapp.data"
 }
+
+dependencies{
+    implementation(projects.core.domain)
+}
